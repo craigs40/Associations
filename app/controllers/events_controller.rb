@@ -12,9 +12,19 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      redirect_to posts_path, notice: 'Event Saved!'
+      redirect_to events_path, notice: 'Event Saved!'
     else
       redirect_to action: 'new', alert: 'Event could not be saved.'
     end
+  end
+
+  def show
+    @event = Event.find(params[:id])
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:name, :description)
   end
 end
