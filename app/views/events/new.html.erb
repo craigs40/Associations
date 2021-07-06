@@ -1,0 +1,14 @@
+<h1>Create A New Event</h1>
+
+<%= form_with model: @event do |form| %>
+  <%= form.label :name, 'Event Name' %><br />
+  <%= form.text_field :name %>
+  <br><br>
+  <%= form.label :details %><br />
+  <%= form.text_area :body, size: "60x10" %>
+  <br><br>
+  <% form.hidden_field :user_id, value: current_user.id %>
+  <%= form.submit %>
+<% end %><br><br>
+
+<%= link_to 'All Events', events_path(@event) %>
