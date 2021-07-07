@@ -1,22 +1,22 @@
-<h1>All Events</h1>
+<h1>Event Details</h1>
 
 <div class="event-info">
   <% if signed_in? %>
-    <% @events.each do |event| %>
     <tr>
         <td><%= event.name %></td>
     </tr>
-    <br>
+    <br><br>
     <tr>
         <td><%= event.description %></td>
     </tr>
-    <br>
+    <br><br>
     <tr>
         <strong>Posted by: <%= "user (#{current_user.id})" %></strong>
     </tr>
     <br><br>
-    <% end %>
   <% end %>
 </div>
 
 <%= link_to 'Post New Event', '/events/new' %>
+<br><br>
+<%= link_to 'All Events', events_path(@event) %>

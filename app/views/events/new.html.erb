@@ -4,7 +4,7 @@
   <%= form.label :name, 'Event Name' %><br />
   <%= form.text_field :name %>
   <br><br>
-  <%= form.label :details %><br />
+  <%= form.label :description, 'Details' %><br />
   <%= form.text_area :description, size: "60x10" %>
   <br><br>
   <% form.hidden_field :user_id, value: current_user.id %>
