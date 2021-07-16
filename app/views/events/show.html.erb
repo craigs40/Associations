@@ -18,6 +18,8 @@
         <strong>Created at <%= event.created_at %></strong>
     </tr>
     <br>
+    <%= show_attend_button(@event) %>
+    <br>
     <%= show_attendees(@attendees)  %>
     <br><br>
   <% end %>

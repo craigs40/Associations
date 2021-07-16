@@ -38,6 +38,7 @@
         <strong>Created at <%= event.created_at %></strong>
     </tr>
     <br><br>
+    <% end %>
   <% end %>
 </div>
 
@@ -60,8 +61,10 @@
         <strong>Created at <%= event.created_at %></strong>
     </tr>
     <br><br>
+    <% end %>
   <% end %>
 </div>
 
-<%= link_to 'Post New Event', '/events/new' %>
-<%= link_to 'Attend Event', '/events/show' %>
+<%= link_to 'Post New Event', '/events/new' %><br><br>
+<%= link_to 'Attend Event', '/events/show' %><br><br>
+<%= link_to 'Profile', '/users/profile' %>
