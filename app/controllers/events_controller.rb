@@ -25,6 +25,14 @@ class EventsController < ApplicationController
     @attendees = @event.attendees
   end
 
+  def upcoming
+    @upcoming_events = Event.upcoming_events
+  end
+
+  def past
+    @past_events = Event.past_events
+  end
+
   private
 
   def event_params

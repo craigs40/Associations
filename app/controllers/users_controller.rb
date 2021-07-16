@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
-
-  def show
+  def profile
     if signed_in?
       @created_events = current_user.created_events
       @attended_events = current_user.attended_events
