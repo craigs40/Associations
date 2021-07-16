@@ -1,7 +1,7 @@
 class AttendeeController < ApplicationController
   def join
-    @attendance = Attendance.new(event_id: params[:id], user_id: current_user.id)
-    @attendance.save
+    @attendee = Attendee.new(event_id: params[:id], user_id: current_user.id)
+    @attendee.save
     redirect_to events_path
   end
 end

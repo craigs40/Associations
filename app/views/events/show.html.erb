@@ -13,6 +13,12 @@
     <tr>
         <strong>Posted by: <%= "user (#{current_user.id})" %></strong>
     </tr>
+    <br>
+    <tr>
+        <strong>Created at <%= event.created_at %></strong>
+    </tr>
+    <br>
+    <%= show_attendees(@attendees)  %>
     <br><br>
   <% end %>
 </div>
