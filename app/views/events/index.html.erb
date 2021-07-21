@@ -1,46 +1,4 @@
-<h1>All Events</h1>
-
-<div class="event-info">
-  <% if signed_in? %>
-    <% @events.each do |event| %>
-    <tr>
-        <td><%= event.name %></td>
-    </tr>
-    <br>
-    <tr>
-        <td><%= event.description %></td>
-    </tr>
-    <br>
-    <tr>
-        <strong>Posted by: <%= "user (#{current_user.id})" %></strong>
-    </tr>
-    <br><br>
-    <% end %>
-  <% end %>
-</div>
-
-<div class="past-events">
-  <% if signed_in? %>
-    <% @past_events.each do |event| %>
-    <tr>
-        <td><%= event.name %></td>
-    </tr>
-    <br>
-    <tr>
-        <td><%= event.description %></td>
-    </tr>
-    <br>
-    <tr>
-        <strong>Posted by: <%= "user (#{current_user.id})" %></strong>
-    </tr>
-    <br>
-    <tr>
-        <strong>Created at <%= event.created_at %></strong>
-    </tr>
-    <br><br>
-    <% end %>
-  <% end %>
-</div>
+<h1>Upcoming Events</h1>
 
 <div class="upcoming-events">
   <% if signed_in? %>
@@ -58,7 +16,33 @@
     </tr>
     <br>
     <tr>
-        <strong>Created at <%= event.created_at %></strong>
+        <strong>Created at: <%= event.created_at %></strong>
+    </tr>
+    <br>
+    <%= link_to 'Attend This Event', "/events/#{event.id}" %><br><br>
+    <% end %>
+  <% end %>
+</div>
+
+<h2>Past Events</h2>
+
+<div class="past-events">
+  <% if signed_in? %>
+    <% @past_events.each do |event| %>
+    <tr>
+        <td><%= event.name %></td>
+    </tr>
+    <br>
+    <tr>
+        <td><%= event.description %></td>
+    </tr>
+    <br>
+    <tr>
+        <strong>Posted by: <%= "user (#{current_user.id})" %></strong>
+    </tr>
+    <br>
+    <tr>
+        <strong>Event date: <%= event.date %></strong>
     </tr>
     <br><br>
     <% end %>
@@ -66,5 +50,4 @@
 </div>
 
 <%= link_to 'Post New Event', '/events/new' %><br><br>
-<%= link_to 'Attend Event', '/events/show' %><br><br>
 <%= link_to 'Profile', '/users/profile' %>

@@ -1,16 +1,16 @@
 <h1>Profile</h1>
 
 <div class="created-events">
-  <p>Created Events - <%= user.events.count %> </p><br>
+  <p>Created Events - <%= current_user.created_events.count %> </p><br>
   <% @created_events.each do |event| %>
     <tr>
         <td><%= event.name %></td>
     </tr>
-    <br><br>
+    <br>
     <tr>
         <td><%= event.description %></td>
     </tr>
-    <br><br>
+    <br>
     <tr>
         <strong>Posted by: <%= "user (#{current_user.id})" %></strong>
     </tr>
@@ -24,16 +24,16 @@
 </div>
 
 <div class="attended-events">
-  <p>Attended Events - <%= user.attended_events.count %> </p><br>
-  <% @created_events.each do |event| %>
+  <p>Attended Events - <%= current_user.attended_events.count %> </p><br>
+  <% @attended_events.each do |event| %>
     <tr>
         <td><%= event.name %></td>
     </tr>
-    <br><br>
+    <br>
     <tr>
         <td><%= event.description %></td>
     </tr>
-    <br><br>
+    <br>
     <tr>
         <strong>Posted by: <%= "user (#{current_user.id})" %></strong>
     </tr>

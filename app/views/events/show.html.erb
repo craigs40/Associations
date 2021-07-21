@@ -3,27 +3,29 @@
 <div class="event-info">
   <% if signed_in? %>
     <tr>
-        <td><%= event.name %></td>
-    </tr>
-    <br><br>
-    <tr>
-        <td><%= event.description %></td>
-    </tr>
-    <br><br>
-    <tr>
-        <strong>Posted by: <%= "user (#{current_user.id})" %></strong>
+        <td><%= @event.name %></td>
     </tr>
     <br>
     <tr>
-        <strong>Created at <%= event.created_at %></strong>
+        <td><%= @event.description %></td>
     </tr>
     <br>
-    <%= show_attend_button(@event) %>
+    <tr>
+        <strong>Posted by: <%= "#{current_user.email}" %></strong>
+    </tr>
     <br>
-    <%= show_attendees(@attendees)  %>
+    <tr>
+        <strong>Created at <%= @event.created_at %></strong>
+    </tr>
     <br><br>
   <% end %>
 </div>
+
+<div class="attendance">
+  <button type="button" name="button"><%= link_to 'Attend Event', "/events/#{@event.id}" %></button><br><br>
+</div>
+
+
 
 <%= link_to 'Post New Event', '/events/new' %>
 <br><br>

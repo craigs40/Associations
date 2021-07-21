@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  def profile
+  def show
     if signed_in?
       @created_events = current_user.created_events
       @attended_events = current_user.attended_events

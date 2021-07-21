@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(event_params)
+    @event = current_user.created_events.build(event_params)
     if @event.save
       redirect_to action: 'index', notice: 'Event Saved!'
     else
@@ -23,6 +23,15 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @attendees = @event.attendees
+  end
+
+  def attend
+    @attendee = Attendee.new(event_id: params[:id], user_id: current_user.id)
+    if @attendee.save
+      redirect_to action: 'index', notice: 'Attendance Saved!'
+    else
+      redirect_to action: 'index', alert: 'Attendance could not be saved.'
+    end
   end
 
   def upcoming
@@ -36,6 +45,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :date)
+    params.require(:event).permit(:name, :description, :location, :date)
   end
 end
