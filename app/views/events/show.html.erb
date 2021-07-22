@@ -22,10 +22,8 @@
 </div>
 
 <div class="attendance">
-  <button type="button" name="button"><%= link_to 'Attend Event', "/events/#{@event.id}" %></button><br><br>
+  <button type="button" name="button"><%= link_to 'Attend Event', new_attendee_path %></button><br><br>
 </div>
-
-
 
 <%= link_to 'Post New Event', '/events/new' %>
 <br><br>

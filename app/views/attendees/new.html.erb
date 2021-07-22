@@ -1,0 +1,9 @@
+<%= form_with model: @attendee do |form| %>
+  <%= form.label :attendee_id, 'Email' %><br />
+  <%= form.email_field :attendee_id, placeholder: "#{current_user.email}" %>
+  <br><br>
+  <%= form.submit %>
+<% end %><br><br>
+
+<%= link_to 'All Events', events_path(@event) %><br><br>
+<%= link_to 'Profile', '/users/profile' %>
