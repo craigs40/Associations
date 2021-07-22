@@ -2,7 +2,7 @@
 
 # Associations
 
-In this project, the goal is to build an application that behaves similar to Eventbrite. The main goal is to put in practice the main concepts of many-to-many associations in rails.
+In this project, the goal is to build an application that behaves similar to Eventbrite. The main goal is to put into practice the main concepts of many-to-many associations in rails.
 
 ## Built With
 
