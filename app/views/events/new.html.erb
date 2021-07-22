@@ -13,7 +13,7 @@
   <%= form.label :date, 'Date' %><br />
   <%= form.date_field :date %>
   <br><br>
-  <% form.hidden_field :user_id, value: current_user.id %>
+  <% form.hidden_field :user_id, value: current_user.email %>
   <%= form.submit %>
 <% end %><br><br>
 

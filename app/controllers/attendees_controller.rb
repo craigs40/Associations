@@ -5,27 +5,14 @@ class AttendeesController < ApplicationController
     @attendeess = Attendee.all
   end
 
-  def new
-    @attendee = Attendee.new
-  end
-
   def create
-    @attendee = current_user.created_events.build(event_params)
-    if @attendee.save
-      redirect_to '/users/show', notice: 'Attendance Saved!'
-    else
-      redirect_to action: 'new', notice: 'Attendance could not be saved.'
-    end
+    @event = Event.find(params[:event_id])
+    @attendee = Attendee.new(event_id: @event.id, user_id: params[:user_id])
+    @attendee.save
+    redirect_to '/users/show', notice: 'Attendance Saved!'
   end
 
   def show
-    @attendee = Attendee.find(params[:id])
-    @attendees = @event.attendees
-  end
-
-  private
-
-  def event_params
-    params.require(:attendee).permit(:attendee_id)
+    @attended_events = current_user.attended_events
   end
 end
