@@ -1,5 +1,5 @@
-#!/usr/bin/env ruby
-# frozen_string_literal: true
+# !/usr/bin/env ruby
+# rubocop:disable Layout/MultilineMethodCallIndentation
 
 APP_ROOT = File.expand_path('..', __dir__)
 Dir.chdir(APP_ROOT) do
@@ -17,3 +17,5 @@ Dir.chdir(APP_ROOT) do
     exit 1
   end
 end
+
+# rubocop:enable Layout/MultilineMethodCallIndentation
