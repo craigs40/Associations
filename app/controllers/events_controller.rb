@@ -23,7 +23,12 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @attendees = @event.attendees
+    @created_events = current_user.events
+    @past_events = current_user.attended_events.previous
+    @upcoming_events = current_user.attended_events.upcoming
   end
+
+  private
 
   def upcoming
     @upcoming_events = Event.upcoming_events
@@ -32,8 +37,6 @@ class EventsController < ApplicationController
   def past
     @past_events = Event.past_events
   end
-
-  private
 
   def event_params
     params.require(:event).permit(:name, :description, :location, :date)
