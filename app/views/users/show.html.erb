@@ -1,0 +1,51 @@
+<h1>Profile</h1>
+
+<div class="created-events">
+  <p>Created Events - <%= current_user.created_events.count %> </p><br>
+  <% @created_events.each do |event| %>
+    <tr>
+        <td><%= event.name %></td>
+    </tr>
+    <br>
+    <tr>
+        <td><%= event.description %></td>
+    </tr>
+    <br>
+    <tr>
+        <strong>Posted by: <%= "#{current_user.email}" %></strong>
+    </tr>
+    <br>
+    <tr>
+        <strong>Created at <%= event.created_at %></strong>
+    </tr>
+    <br>
+    <br><br>
+  <% end %>
+</div>
+
+<div class="attended-events">
+  <p>Attended Events - <%= current_user.attended_events.count %> </p><br>
+  <% @attended_events.each do |event| %>
+    <tr>
+        <td><%= event.name %></td>
+    </tr>
+    <br>
+    <tr>
+        <td><%= event.description %></td>
+    </tr>
+    <br>
+    <tr>
+        <strong>Posted by: <%= "#{current_user.email}" %></strong>
+    </tr>
+    <br>
+    <tr>
+        <strong>Created at <%= event.created_at %></strong>
+    </tr>
+    <br>
+    <br><br>
+  <% end %>
+</div>
+
+<%= link_to 'Post New Event', '/events/new' %>
+<br><br>
+<%= link_to 'All Events', events_path(@event) %>
